@@ -1,0 +1,109 @@
+system cls;
+desc tempp;
+
+delimiter //
+create procedure abc()
+    begin
+      insert into tempp values(1, 'hello');
+end; //
+
+drop procedure abc; --> to drop it
+drop and recreate to modify it
+
+
+delimiter //
+create procedure abc1()
+    begin
+      declare x int;
+      set x= 10;
+      insert into tempp values(x, 'hello');
+end; //
+
+delimiter ;
+
+delimiter //
+create procedure abc1()
+    begin
+      declare x int  default 10;
+      insert into tempp values(1, x);
+end; //
+
+delimiter ;
+
+delimiter //
+create procedure abc2()
+    begin
+      declare x char(15)  default 'cdac';
+      insert into tempp values(1, x);
+end; //
+delimiter ;
+
+delimiter //
+create procedure abc3()
+   begin
+      declare x char(15)  default 'king';
+      declare y float(7,2) default 3000;
+      declare z float(2,1) default 0.4;
+      declare hra float(7,2);
+      set hra= y*z;
+      insert into tempp values(y,x);
+      insert into tempp values(hra, 'HRA');
+    end; //
+delimiter ;
+
+delimiter //
+create procedure abc4()
+   begin
+      declare x int(4);
+      select sal into x from emp
+      where ename = 'KING';
+    //set hra = x*0.4;
+      insert into tempp values(x, 'KING');
+    end; //
+delimiter ;
+
+delimiter //
+create procedure abc5()
+   begin
+      declare x int(4);
+      select sal into x from emp
+      where ename = 'abc';
+      insert into tempp values(x, 'abc');
+    end; //
+delimiter ;
+
+delimiter //
+create procedure abc5()
+   begin
+      declare x int(4);
+      declare y char(15);
+      select sal, job into x, from empDemo
+      where ename = 'ali';
+/*processing eg : set hra = x*0.4*/
+      insert into tempp values(x, 'abc');
+    end; //
+delimiter ;
+
+delimiter //
+create procedure test()
+begin 
+  insert into tempp values(1, 'hello');
+end//
+delimiter ;
+
+
+delimiter //
+create procedure test1()
+begin
+declare x int;
+set x= 100;
+ insert into tempp values(x, 'testt');
+end //
+
+create table rectangle
+(
+L FLOAT(5),
+W FLOAT(5),
+PERI FLOAT(5),
+AREA FLOAT(5)
+);

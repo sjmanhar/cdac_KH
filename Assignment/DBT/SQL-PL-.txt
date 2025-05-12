@@ -1,0 +1,93 @@
+---------SQL-PL------------
+                  EXERCISE 1
+
+1. Write a program that computes the perimeter and the area of a rectangle. Define 
+your own values for the length and width. (Assuming that L and W are the length and width of the rectangle, Perimeter = 2*(L+W) and Area = L*W.   
+
+create table rectangle
+(
+L FLOAT(5),
+W FLOAT(5),
+PERI FLOAT(5),
+AREA FLOAT(5)
+);
+
+DELIMITER //
+create procedure rec()
+begin
+  declare L float(5) default 4;
+  declare W float(5) default 5;
+  declare PERI float(5) ;
+  declare AREA float(5) ;
+
+  set PERI = 2*(L+W);
+  set AREA = L*W;
+    insert into rectangle values(L,W);
+    insert into rectangle values(PERI,AREA);
+END//
+
+2. Write a program that declares an integer variable called num, assigns a value to it, 
+and computes and inserts into the tempp table the value of the variable itself, its 
+square, and its cube.     
+
+
+create table q2
+(
+num int(4),
+square int(4),
+num_cube int(4)
+);
+
+DELIMITER //
+create procedure que()
+begin
+  declare num int default 4;
+  declare square int;
+  declare num_cube int ;
+
+  set square = num*num;
+  set num_cube =  num*num*num;
+  
+    insert into q2 values(num, square, num_cube);
+END//
+DELIMITER ;
+ call que()//
+ select * from q2//
++------+--------+----------+
+| num  | square | num_cube |
++------+--------+----------+
+|    4 |     16 |       64 |
++------+--------+----------+
+
+    
+3. Convert a temperature in Fahrenheit (F) to its equivalent in Celsius (C) and vice 
+versa. The required formulae are:-  C= (F-32)*5/9    
+F= 9/5*C + 32   
+  
+create table q3
+(
+c float(7,2) , f float(7,2), c_to_f float(7,2) , f_to_c float(7,2)
+);
+
+DELIMITER //
+create procedure que33()
+begin
+ DECLARE f FLOAT(7,2) DEFAULT 98.6;
+    DECLARE c FLOAT(7,2) DEFAULT 37;
+  DECLARE f_to_c FLOAT(7,2);
+    DECLARE c_to_f FLOAT(7,2);
+ SET f_to_c = (f - 32) * 5 / 9;
+SET c_to_f = (c * 9 / 5) + 32;
+  insert into q3 values(c, f,c_to_f, f_to_c);
+END//
+DELIMITER ;
+
+mysql> call que33();
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from q3;
++-------+-------+--------+--------+
+| c     | f     | c_to_f | f_to_c |
++-------+-------+--------+--------+
+| 37.00 | 98.60 |  98.60 |  37.00 |
++-------+-------+--------+--------+

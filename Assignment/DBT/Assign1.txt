@@ -1,0 +1,979 @@
+                                          Assignment –1  
+Creating sample tables and inserting values.  
+                                              
+
+mysql> create table SALESPEOPLE( Snum int(4), Sname varchar(10), City varchar(10), Comm float(3,2));
+
+mysql> create table CUSTOMERS (Cnum int(4), Cname varchar(10), City varchar(10), Rating int(4), Snum int(4));
+
+mysql> create table ORDERS (Onum int(4), Amt float(7,2),Odate date,Cnum int(4), Snum int(4));
+
+mysql> insert into SALESPEOPLE (Snum,Sname,City, Comm) values (1001,'peel', 'london', 0.12),(1002,'serres', 'san jose', 0.13), (1004, 'motika', 'london',0.11),(1007, 'rifkin','barcelona', 0.15),(1003, 'axelrod' , 'new york', 0.10);
+
+select * from SALESPEOPLE;
++------+---------+-----------+------+
+| Snum | Sname   | City      | Comm |
++------+---------+-----------+------+
+| 1001 | peel    | london    | 0.12 |
+| 1002 | serres  | san jose  | 0.13 |
+| 1004 | motika  | london    | 0.11 |
+| 1007 | rifkin  | barcelona | 0.15 |
+| 1003 | axelrod | new york  | 0.10 |
++------+---------+-----------+------+
+
+mysql> insert into CUSTOMERS (Cnum,Cname,City, Rating,Snum)  values (2001,'hoffman', 'london', 100,1001),(2002,'giovant', 'rome', 200,1003), (2003,  'Liu',  'San Jose',  200 , 1002),  (2004,  'Grass',   'Berlin ', 300 , 1002),(2006,  'Clemens','London', 100,  1001),  (2008,  'Cisneros' , 'San Jose',  300 , 1007),  (2007, ' Pereira',  'Rome',  100 , 1004) ;
+
+mysql> select * from CUSTOMERS;
++------+---------+----------+--------+------+
+| Cnum | Cname   | City     | Rating | Snum |
++------+---------+----------+--------+------+
+| 2001 | hoffman | london   |    100 | 1001 |
+| 2002 | giovant | rome     |    200 | 1003 |
+| 2004 | liu     | san jose |    200 | 1003 |
+
+INSERT INTO ORDERS (ONUM, AMT, ODATE, CNUM, SNUM) VALUES
+(3001, 18.69, '1990-10-03', 2008, 1007),
+(3003, 767.19, '1990-10-03', 2001, 1001),
+(3002, 1900.10, '1990-10-03', 2007, 1004),
+(3005, 5160.45, '1990-10-03', 2003, 1002),
+(3006, 1098.16, '1990-10-03', 2008, 1007),
+(3009, 1713.23, '1990-10-04', 2002, 1003),
+(3007, 75.75, '1990-10-04', 2004, 1002),
+(3008, 4723.00, '1990-10-05', 2006, 1001),
+(3010, 1309.95, '1990-10-06', 2004, 1002),
+(3011, 9891.88, '1990-10-06', 2006, 1001);
+
+
+mysql> select * from ORDERS;
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-05 | 2006 | 1001 |
+| 3010 | 1309.95 | 1990-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+
+------------------------------------------------------------------------------------------------------------------------------------------------
+
+                                        Assignment –2
+ Introducing Relational Databases.
+
+ 1) Which field of the Customers table is the primary key? 
+-->Cnum
+
+2) What is the 4th column of the Customers table? 
+--> Rating
+
+3) What is another word for row?  For column? 
+--> Rows- record,entity, tuple
+    Column- field, attribute
+
+4) Why isn’t it possible to see the first five rows of a table? 
+-->LIMIT
+
+--------------------------------------------------------------------------------------------------------------
+
+                             Assignment –3
+ Overview of SQL.
+
+1) Does ANSI recognize the data type DATE? 
+
+-->  The ANSI SQL standards specify qualifiers and formats for character representations of DATETIME and INTERVAL values. The standard qualifier for a DATETIME value is YEAR TO SECOND, and the standard format is as follows:
+YYYY-MM-DD HH:MM:SS
+
+2) Which subdivision of SQL is used to insert values in tables?
+--> DML(Data Manipulation language)
+
+----------------------------------------------------------------------------------------------------------------
+
+                          Assignment –4
+ Retrieving Information from Tables.
+ 1) Write a select command that produces the order number, amount, and date for all 
+rows in the Orders table. 
+
+mysql> select  Onum,Amt,Odate from orders;
++------+---------+------------+
+| Onum | Amt     | Odate      |
++------+---------+------------+
+| 3001 |   18.69 | 1990-10-03 |
+| 3003 |  767.19 | 1990-10-03 |
+| 3002 | 1900.10 | 1990-10-03 |
+| 3005 | 5160.45 | 1990-10-03 |
+| 3006 | 1098.16 | 1990-10-03 |
+| 3009 | 1713.23 | 1990-10-04 |
+| 3007 |   75.75 | 1990-10-04 |
+| 3008 | 4723.00 | 1990-10-05 |
+| 3010 | 1309.95 | 1990-10-06 |
+| 3011 | 9891.88 | 1990-10-06 |
++------+---------+------------+
+
+2) Write a query that produces all rows from the Customers table for which the 
+salesperson’s number is 1001. 
+
+mysql> select * from customers where Snum=1001;
++------+---------+--------+--------+------+
+| Cnum | Cname   | City   | Rating | Snum |
++------+---------+--------+--------+------+
+| 2001 | hoffman | london |    100 | 1001 |
+| 2001 | hoffman | london |    100 | 1001 |
+| 2006 | Clemens | London |    100 | 1001 |
++------+---------+--------+--------+------+
+
+3) Write a query that displays the Salespeople table with the columns in the 
+following order: city, sname, snum, comm. 
+
+mysql> select city, sname, snum, comm from salespeople;
++-----------+---------+------+------+
+| city      | sname   | snum | comm |
++-----------+---------+------+------+
+| london    | peel    | 1001 | 0.12 |
+| san jose  | serres  | 1002 | 0.13 |
+| london    | motika  | 1004 | 0.11 |
+| barcelona | rifkin  | 1007 | 0.15 |
+| new york  | axelrod | 1003 | 0.10 |
++-----------+---------+------+------+
+
+4) Write a select command that produces the rating followed by the name of each 
+customer in San Jose. 
+
+mysql> select rating from customers where city = 'san jose';
++--------+
+| rating |
++--------+
+|    200 |
+|    300 |
++--------+
+
+5) Write a query that will produce the snum values of all salespeople (suppress the 
+duplicates) with orders in the Orders table.
+
+mysql> select distinct sum(snum) from orders;
++-----------+
+| sum(snum) |
++-----------+
+|     10030 |
++-----------+
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+Assignment –5 Relational and Logical 
+Operators. 
+  
+1) Write a query that will give you all orders for more than Rs. 1,000. 
+
+mysql> select * from orders where amt>1000;
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3008 | 4723.00 | 1990-10-05 | 2006 | 1001 |
+| 3010 | 1309.95 | 1990-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+  
+2) Write a query that will give you the names and cities of all salespeople in 
+London with a commission above .10. 
+
+mysql> select sname, city from salespeople WHERE city = 'London' AND comm > 0.10;
++--------+--------+
+| sname  | city   |
++--------+--------+
+| peel   | london |
+| motika | london |
++--------+--------+
+  
+3) Write a query on the Customers table whose output will exclude all customers 
+with a rating <= 100, unless they are located in Rome.
+
+mysql> select * from customers where rating>=1000 or city = "rome";
++------+----------+------+--------+------+
+| Cnum | Cname    | City | Rating | Snum |
++------+----------+------+--------+------+
+| 2002 | giovant  | rome |    200 | 1003 |
+| 2002 | giovant  | rome |    200 | 1003 |
+| 2007 |  Pereira | Rome |    100 | 1004 |
++------+----------+------+--------+------+
+
+
+  
+4) What will be the output from the following query?   
+Select * from Orders where (amt < 1000 OR NOT (odate = '1990-10-03' AND cnum > 2003));
+
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-05 | 2006 | 1001 |
+| 3010 | 1309.95 | 1990-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+ 
+5) What will be the output of the following query?   
+Select * from Orders where NOT ((odate = '1990-10-03' OR snum >1006) AND amt >= 1500);   
+
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-05 | 2006 | 1001 |
+| 3010 | 1309.95 | 1990-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+
+6) What is a simpler way to write this query?   
+Select snum, sname, city, comm From Salespeople              
+where (comm > .12 OR comm <.14); 
+
++------+---------+-----------+------+
+| snum | sname   | city      | comm |
++------+---------+-----------+------+
+| 1001 | peel    | london    | 0.12 |
+| 1002 | serres  | san jose  | 0.13 |
+| 1004 | motika  | london    | 0.11 |
+| 1007 | rifkin  | barcelona | 0.15 |
+| 1003 | axelrod | new york  | 0.10 |
++------+---------+-----------+------+
+
+ mysql> SELECT snum, sname, city, comm
+    -> FROM Salespeople;
++------+---------+-----------+------+
+| snum | sname   | city      | comm |
++------+---------+-----------+------+
+| 1001 | peel    | london    | 0.12 |
+| 1002 | serres  | san jose  | 0.13 |
+| 1004 | motika  | london    | 0.11 |
+| 1007 | rifkin  | barcelona | 0.15 |
+| 1003 | axelrod | new york  | 0.10 |
++------+---------+-----------+------+
+
+---------------------------------------------------------------------------------------------------------------------
+
+                            Assignment –6
+ Using Special Operators in Conditions.
+
+1) Write two different queries that would produce all orders taken on October 3rd or 
+4th, 1990. 
+
+mysql> select * from orders where  odate = '1990-10-03' OR odate = '1990-10-04';
+
+mysql> SELECT *
+    -> FROM Orders
+    -> WHERE odate IN ('1990-10-03', '1990-10-04');
+
+mysql> SELECT *
+    -> FROM Orders
+    -> WHERE odate BETWEEN '1990-10-03' AND '1990-10-04';
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
++------+---------+------------+------+------+
+
+
+2) Write a query that selects all of the customers serviced by Peel or Motika. 
+(Hint: the snum field relates the two tables to one another).  
+
+mysql> SELECT *
+    -> FROM customers
+    -> JOIN salespeople ON salespeople.snum = customers.snum
+    -> WHERE salespeople.sname = 'peel' OR salespeople.sname = 'motika';
++------+----------+--------+--------+------+------+--------+--------+------+
+| Cnum | Cname    | City   | Rating | Snum | Snum | Sname  | City   | Comm |
++------+----------+--------+--------+------+------+--------+--------+------+
+| 2001 | hoffman  | london |    100 | 1001 | 1001 | peel   | london | 0.12 |
+| 2001 | hoffman  | london |    100 | 1001 | 1001 | peel   | london | 0.12 |
+| 2006 | Clemens  | London |    100 | 1001 | 1001 | peel   | london | 0.12 |
+| 2007 |  Pereira | Rome   |    100 | 1004 | 1004 | motika | london | 0.11 |
++------+----------+--------+--------+------+------+--------+--------+------+
+
+
+3) Write a query that will produce all the customers whose names begin with a letter 
+from ‘A’ to ‘G’. 
+
+mysql> select * from customers where cname>= 'A' and cname<'h';
++------+----------+----------+--------+------+
+| Cnum | Cname    | City     | Rating | Snum |
++------+----------+----------+--------+------+
+| 2002 | giovant  | rome     |    200 | 1003 |
+| 2002 | giovant  | rome     |    200 | 1003 |
+| 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2006 | Clemens  | London   |    100 | 1001 |
+| 2008 | Cisneros | San Jose |    300 | 1007 |
++------+----------+----------+--------+------+
+5 rows in set (0.00 sec)
+
+mysql> select distinct * from customers where cname>= 'A' and cname<'h';
++------+----------+----------+--------+------+
+| Cnum | Cname    | City     | Rating | Snum |
++------+----------+----------+--------+------+
+| 2002 | giovant  | rome     |    200 | 1003 |
+| 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2006 | Clemens  | London   |    100 | 1001 |
+| 2008 | Cisneros | San Jose |    300 | 1007 |
++------+----------+----------+--------+------+
+
+
+4) Write a query that selects all customers whose names begin with the letter ‘C’. 
+
+mysql> select * from customers where cname like'c%';
++------+----------+----------+--------+------+
+| Cnum | Cname    | City     | Rating | Snum |
++------+----------+----------+--------+------+
+| 2006 | Clemens  | London   |    100 | 1001 |
+| 2008 | Cisneros | San Jose |    300 | 1007 |
++------+----------+----------+--------+------+
+
+5) Write a query that selects all orders except those with zeroes or NULLs in the amt field. 
+
+mysql> select * from orders where amt is not null;
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3007 |   75.75 | 1990-10-04 | 2004 | 1002 |
+| 3008 | 4723.00 | 1990-10-05 | 2006 | 1001 |
+| 3010 | 1309.95 | 1990-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+                            Assignment –7
+Summarizing Data with Aggregate Functions.
+
+
+1) Write a query that counts all orders for October 3. 
+
+mysql> select * from orders where odate= ' 1990-10-03';
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3003 |  767.19 | 1990-10-03 | 2001 | 1001 |
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
++------+---------+------------+------+------+
+
+2) Write a query that counts the number of different non-NULL city values in the Customers table. 
+3) Write a query that selects each customer’s smallest order. 
+
+mysql> select count(city) from customers where city is not null;
++-------------+
+| count(city) |
++-------------+
+|           9 |
++-------------+
+
+4) Write a query that selects the first customer, in alphabetical order, whose name begins with G. 
+
+mysql> select cname from customers where cname like 'G%';
++---------+
+| cname   |
++---------+
+| giovant |
+| giovant |
+| Grass   |
++---------+
+
+5) Write a query that selects the highest rating in each city. 
+
+mysql> select city,max(rating) from  customers group by city;
++----------+-------------+
+| city     | max(rating) |
++----------+-------------+
+| london   |         100 |
+| rome     |         200 |
+| San Jose |         300 |
+| Berlin   |         300 |
++----------+-------------+
+
+6) Write a query that counts the number of salespeople registering orders for each day. (If a salesperson has more than one order on a given day, he or she should be 
+counted only once.). 
+
+mysql> SELECT odate, COUNT(DISTINCT snum) AS salesperson_count
+    -> FROM orders
+    -> GROUP BY odate;
++------------+-------------------+
+| odate      | salesperson_count |
++------------+-------------------+
+| 1990-10-03 |                 4 |
+| 1990-10-04 |                 2 |
+| 1990-10-05 |                 1 |
+| 1990-10-06 |                 2 |
++------------+-------------------+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+                            Assignment –8
+ Formatting Query output.
+
+ 1) Assume each salesperson has a 12% commission. Write a query on the orders table that will produce the order number, the salesperson number, and the amount of the salesperson’s commission for that order. 
+
+mysql> select onum, snum, amt*0.12 from orders;
++------+------+----------+
+| onum | snum | amt*0.12 |
++------+------+----------+
+| 3001 | 1007 |     2.24 |
+| 3003 | 1001 |    92.06 |
+| 3002 | 1004 |   228.01 |
+| 3005 | 1002 |   619.25 |
+| 3006 | 1007 |   131.78 |
+| 3009 | 1003 |   205.59 |
+| 3007 | 1002 |     9.09 |
+| 3008 | 1001 |   566.76 |
+| 3010 | 1002 |   157.19 |
+| 3011 | 1001 |  1187.03 |
++------+------+----------+
+
+
+2) Write a query on the Customers table that will find the highest rating in each city. 
+Put the output in this form: 
+For the city (city), the highest rating is : (rating). 
+
+mysql> SELECT
+    ->   CONCAT('For the city ', city, ', the highest rating is: ', MAX(rating)) AS result
+    -> FROM customers
+    -> GROUP BY city;
+
+select concat('for the city', city,' , the highest rating is: ', max(rating)) as result from customers group by city;
+
++---------------------------------------------------+
+| result                                            |
++---------------------------------------------------+
+| For the city london, the highest rating is: 100   |
+| For the city rome, the highest rating is: 200     |
+| For the city San Jose, the highest rating is: 300 |
+| For the city Berlin , the highest rating is: 300  |
++---------------------------------------------------+
+
+3) Write a query that lists customers in descending order of rating. Output the rating field first, followed by the customer’s name and number
+
+mysql> select distinct rating , cname,cnum from customers order by rating desc;
++--------+----------+------+
+| rating | cname    | cnum |
++--------+----------+------+
+|    300 | Cisneros | 2008 |
+|    300 | Grass    | 2004 |
+|    200 | giovant  | 2002 |
+|    200 | Liu      | 2003 |
+|    100 |  Pereira | 2007 |
+|    100 | Clemens  | 2006 |
+|    100 | hoffman  | 2001 |
++--------+----------+------+
+
+
+4) Write a query that totals the orders for each day and places the results in descending order. 
+
+select odate,count(onum) from orders
+group by odate
+order by odate desc;
+
+mysql> select odate,count(onum) from orders
+    -> group by odate
+    -> order by odate desc;
++------------+-------------+
+| odate      | count(onum) |
++------------+-------------+
+| 1990-10-06 |           2 |
+| 1990-10-05 |           1 |
+| 1990-10-04 |           2 |
+| 1990-10-03 |           5 |
++------------+-------------+
+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+                            Assignment –9
+Querying Multiple Tables at Once
+.
+1) Write a query that lists each order number followed by the name of the customer who made the order.
+
+SELECT orders.onum AS order_number, customers.cname AS customer_name
+FROM orders
+JOIN customers ON orders.cnum = customers.cnum;
+
++--------------+---------------+
+| order_number | customer_name |
++--------------+---------------+
+|         3001 | Cisneros      |
+|         3003 | hoffman       |
+|         3003 | hoffman       |
+|         3002 |  Pereira      |
+|         3005 | Liu           |
+|         3006 | Cisneros      |
+|         3009 | giovant       |
+|         3009 | giovant       |
+|         3007 | Grass         |
+|         3008 | Clemens       |
+|         3010 | Grass         |
+|         3011 | Clemens       |
++--------------+---------------+
+
+2) Write a query that gives the names of both the salesperson and the customer for each order along with the order number. 
+
+
+SELECT 
+  orders.onum ,
+  salespeople.sname ,
+  customers.cname 
+FROM orders
+JOIN salespeople ON orders.snum = salespeople.snum
+JOIN customers ON orders.cnum = customers.cnum;
++------+---------+----------+
+| onum | sname   | cname    |
++------+---------+----------+
+| 3003 | peel    | hoffman  |
+| 3009 | axelrod | giovant  |
+| 3003 | peel    | hoffman  |
+| 3009 | axelrod | giovant  |
+| 3005 | serres  | Liu      |
+| 3010 | serres  | Grass    |
+| 3007 | serres  | Grass    |
+| 3011 | peel    | Clemens  |
+| 3008 | peel    | Clemens  |
+| 3006 | rifkin  | Cisneros |
+| 3001 | rifkin  | Cisneros |
+| 3002 | motika  |  Pereira |
++------+---------+----------+
+
+3) Write a query that produces all customers serviced by salespeople with a 
+commission above 12%. Output the customer’s name, the salesperson’s name, 
+and the salesperson’s rate of commission. 
+
+select distinct Cname , sname, comm from customers 
+join salespeople on salespeople.snum = customers.snum
+where comm>0.12;
++----------+--------+------+
+| Cname    | sname  | comm |
++----------+--------+------+
+| Liu      | serres | 0.13 |
+| Grass    | serres | 0.13 |
+| Cisneros | rifkin | 0.15 |
++----------+--------+------+
+
+4) Write a query that calculates the amount of the salesperson’s commission on each order by a customer with a rating above 100. 
+
+select rating,onum,cname,sname, amt, comm ,amt*comm 
+from orders
+join customers on orders.cnum = customers.cnum
+join salespeople on orders.snum = salespeople.snum  
+where rating >100;
+
++------+----------+---------+---------+------+----------+
+| onum | cname    | sname   | amt     | comm | amt*comm |rating
++------+----------+---------+---------+------+----------+
+| 3010 | Grass    | serres  | 1309.95 | 0.13 |   170.29 |
+| 3007 | Grass    | serres  |   75.75 | 0.13 |     9.85 |
+| 3005 | Liu      | serres  | 5160.45 | 0.13 |   670.86 |
+| 3006 | Cisneros | rifkin  | 1098.16 | 0.15 |   164.72 |
+| 3001 | Cisneros | rifkin  |   18.69 | 0.15 |     2.80 |
+| 3009 | giovant  | axelrod | 1713.23 | 0.10 |   171.32 |
+| 3009 | giovant  | axelrod | 1713.23 | 0.10 |   171.32 |
++------+----------+---------+---------+------+----------+
+
+---------------------------------------------------------------------------------------------------------------------
+
+                     Assignment – 10
+ Joining a Table to Itself.
+
+ 1) Write a query that produces all pairs of salespeople who are living in the same city.  Exclude combinations of salespeople with themselves as well as duplicate rows with the order reversed.
+ 
+select s1.sname sale1, s2.sname sale2, s1.city 
+from salespeople as s1
+join salespeople as s2
+on s1.city = s2.city
+and s1.snum<s2.snum;
+
++-------+--------+--------+
+| sale1 | sale2  | city   |
++-------+--------+--------+
+| peel  | motika | london |
++-------+--------+--------+
+
+2) Write a query that produces the names and cities of all customers with the same rating as Hoffman. 
+
+select distinct cname, city from customers   // subqueries
+where rating = (
+   select distinct rating 
+from customers 
+where cname = 'hoffman'
+);
+
+select distinct c1.cname, c1.city
+from customers c1
+join customers c2
+on c1.rating = c2.rating
+where c2.cname = 'hoffman';
+
++----------+--------+
+| cname    | city   |
++----------+--------+
+| hoffman  | london |
+| Clemens  | London |
+|  Pereira | Rome   |
++----------+--------+
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+                       Assignment – 11
+
+ Subqueries.
+
+ 1) Write a query that uses a subquery to obtain all orders for the customer named 
+Cisneros. Assume you do not know his customer number (cnum). 
+
+select * from orders 
+where cnum =(
+select cnum from customers 
+where cname ='Cisneros');
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1990-10-03 | 2008 | 1007 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
++------+---------+------------+------+------+
+
+2) Write a query that produces the names and ratings of all customers who have above-average orders. 
+
+select customers.cname, customers.rating from customers, orders 
+where customers.cnum= orders.cnum
+and orders.amt> 
+(select avg(amt) from orders);
+
++---------+--------+
+| cname   | rating |
++---------+--------+
+| Liu     |    200 |
+| Clemens |    100 |
+| Clemens |    100 |
++---------+--------+
+
+3) Write a query that selects the total amount in orders for each salesperson for whom this total is greater than the amount of the largest order in the table. 
+
+where total>
+(select max(amt) from orders);
+
+select salespeople.sname, sum(orders.amt) total 
+from orders
+join salespeople on  orders.snum = salespeople.snum
+group by salespeople.sname
+having total >
+(select max(orders.amt) from orders);
+
++-------+----------+
+| sname | total    |
++-------+----------+
+| peel  | 15382.07 |
++-------+----------+
+
+---------------------------------------------------------------------------------------------------------------------
+
+                       Assignment – 12
+Using the operators IN, ANY, and ALL.
+  
+1) Write a query that selects all customers whose ratings are equal to or greater than ANY of Serres’.  
+select * from customers
+where rating>= any
+(select rating from customers where cname= 'Serres');
+
+Empty set 
+
+2) Write a query using ANY or ALL that will find all salespeople who have no 
+customers located in their city.  
+
+select * from salespeople 
+where city <> all
+(select city from customers
+where customers.snum= salespeople.snum);
+
++------+---------+-----------+------+
+| Snum | Sname   | City      | Comm |
++------+---------+-----------+------+
+| 1004 | motika  | london    | 0.11 |
+| 1007 | rifkin  | barcelona | 0.15 |
+| 1003 | axelrod | new york  | 0.10 |
++------+---------+-----------+------+
+
+3) Write a query that selects all orders for amounts greater than any for the customers in London.  
+
+select * from orders
+where amt >any
+(select amt from orders 
+join customers on orders.cnum= customers.cnum
+where customers.city= 'london'
+);
++------+---------+------------+------+------+
+| Onum | Amt     | Odate      | Cnum | Snum |
++------+---------+------------+------+------+
+| 3002 | 1900.10 | 1990-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1990-10-03 | 2003 | 1002 |
+| 3006 | 1098.16 | 1990-10-03 | 2008 | 1007 |
+| 3009 | 1713.23 | 1990-10-04 | 2002 | 1003 |
+| 3008 | 4723.00 | 1990-10-05 | 2006 | 1001 |
+| 3010 | 1309.95 | 1990-10-06 | 2004 | 1002 |
+| 3011 | 9891.88 | 1990-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+
+
+4) Write the above query using MIN or MAX.  
+
+select * from orders
+where amt >
+(select min(amt) from orders 
+join customers on orders.cnum= customers.cnum
+where customers.city= 'london'
+);
+
+
+select * from orders
+where amt >
+(select max(amt) from orders 
+join customers on orders.cnum= customers.cnum
+where customers.city= 'london'
+);
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+                       Assignment – 13
+ Using the UNION clause.
+
+ 1) Create a union of two queries that shows the names, cities, and ratings of all customers. Those with rating of 200 or greater will also have the words “High Rating”, while the others will have the words “Low Rating”. 
+
+mysql> SELECT CNAME, CITY, RATING, 'High Rating' AS RATING_TYPE
+ FROM CUSTOMERS
+    -> WHERE RATING >= 200
+    ->                          UNION
+    -> SELECT CNAME, CITY, RATING, 'Low Rating' AS RATING_TYPE FROM CUSTOMERS
+    -> WHERE RATING < 200;
+
+
+
+2) Write a command that produces the name and number of each salesperson and 
+each customer with more than one current order. Put the results in alphabetical order.
+
+mysql> SELECT SNUM "ID", SNAME "NAME" FROM SALESPEOPLE
+    -> UNION
+    -> SELECT CUSTOMERS.CNUM "ID", CNAME "NAME" FROM CUSTOMERS
+    -> JOIN ORDERS ON CUSTOMERS.CNUM = ORDERS.CNUM
+    -> GROUP BY CUSTOMERS.CNUM, CNAME
+    -> HAVING COUNT(ONUM)>1;
+
+
+ 
+3) Form a union of three queries. Have the first select the snums of all salespeople in San Jose; the second, the cnums of all customers in San Jose; and the third the 
+onums of all orders on October 3. Retain duplicates between the last two queries but eliminate any redundancies between either of them and the first.  
+(Note: in the sample tables as given, there would be no such redundancy. This is besides the point.)
+
+mysql> SELECT SNUM FROM SALESPEOPLE
+    -> WHERE CITY = 'San Jose'
+    ->          EXCEPT
+    -> SELECT CNUM FROM CUSTOMERS
+    -> WHERE CITY = 'San Jose'
+    ->          UNION
+    -> SELECT ONUM FROM ORDERS
+    -> WHERE ODATE = '1990-10-03';
+
+
+---------------------------------------------------------------------------------------------------------------------
+
+                          Assignment – 14
+ Entering, Deleting, and Changing Field Values.
+ 1) Write a command that puts the following values, in their given order, into the salespeople table: city – San Jose, name – Blanco, comm – NULL, cnum – 1100. 
+
+mysql> INSERT INTO SALESPEOPLE (CITY, SNAME, COMM, SNUM)
+    -> VALUES ('San Jose', 'Blanco', NULL, 1100);
+
+2) Write a command that removes all orders from customer Clemens from the 
+Orders table. 
+
+DELETE FROM ORDERS WHERE CNUM = 
+    -> (SELECT CNUM FROM CUSTOMERS WHERE CNAME = 'CLEMENS');
+
+3) Write a command that increases the rating of all customers in Rome by 100. 
+
+
+mysql> UPDATE customers
+    -> SET rating = rating + 100
+    -> WHERE city = 'Rome';
+
+4) Salesperson Serres has left the company. Assign her customers to Motika.
+
+mysql> UPDATE CUSTOMERS
+    -> SET SNUM = (SELECT SNUM FROM SALESPEOPLE WHERE SNAME = 'Motika')
+    -> WHERE SNUM = (SELECT SNUM FROM SALESPEOPLE WHERE SNAME = 'Serres');
+
+
+Assignment – 15
+ Using Subqueries with DML Commands.
+
+ 1) Assume there is a table called Multicust, with all of the same column definitions as Salespeople. Write a command that inserts all salespeople with more than one customer into this table. 
+
+
+mysql> INSERT INTO MULTICUST
+    -> SELECT * FROM SALESPEOPLE
+    -> WHERE SNUM IN
+    -> (SELECT SNUM FROM CUSTOMERS
+    ->  GROUP BY SNUM
+    ->  HAVING COUNT(*) > 1);
+
+2) Write a command that deletes all customers with no current orders. 
+
+
+mysql> DELETE FROM `CUSTOMERS` 
+    -> WHERE `CNUM` NOT IN
+    -> (SELECT `CNUM` FROM `ORDERS`);
+
+3) Write a command that increases by twenty percent the commissions of all 
+salespeople with total orders above Rs. 3,000. 
+
+
+mysql> UPDATE SALESPEOPLE
+    -> SET Comm = Comm+0.20
+    -> WHERE SNUM =
+    -> (SELECT SNUM FROM ORDERS
+    ->  GROUP BY SNUM
+    ->  HAVING SUM(AMT) > 3000);
+
+Assignment – 16
+ Creating Tables and Indexes.
+ 1) Write a command that will enable a user to pull orders grouped by date out of the Orders table quickly. 
+
+mysql> CREATE INDEX order_index ON ORDERS(ODATE);
+
+2) If the Orders table has already been created, how can you force the onum field to be unique (assume all current values are unique)? 
+
+mysql> ALTER TABLE ORDERS
+    -> ADD CONSTRAINT unique_orders UNIQUE (`Onum`);
+
+3) Create an index that would permit each salesperson to retrieve his or her orders grouped by date quickly. 
+
+mysql> CREATE INDEX salespeople_order_index ON ORDERS(SNUM, ODATE);
+
+4) Let us assume that each salesperson is to have only one customer of a given rating, and that this is currently the case. Enter a command that enforces it. 
+
+mysql> ALTER TABLE CUSTOMERS
+    -> ADD CONSTRAINT salespeople_rating_customer UNIQUE (`Rating`, `Snum`);
+
+Assignment – 17
+ Constraining the Values of your data.
+
+ 1) Create the Orders table so that all onum values as well as all combinations of cnum and snum are different from one another, and so that NULL values are excluded from the date field. 
+2) Create the Salespeople table so that the default commission is 10% with no NULLS permitted, snum is the primary key, and all names fall alphabetically between A and M, inclusive (assume all names will be uppercase). 
+3) Create the Orders table, making sure that the onum is greater than the cnum, and 
+the cnum is greater that the snum. Allow no NULLS in any of these three fields. 
+
+
+Assignment – 18
+ Maintaining the Integrity of your Data.
+ 1) Create a table called Cityorders. This will contain the same onum, amt and snum 
+fields as the Orders table, and the same cnum and city fields as the Customers 
+table, so that each customer’s order will be entered into this table along with his 
+or her city. Onum will be the primary key of Cityorders. All of the fields in 
+Cityorders will be constrained to match the Customers and Orders tables. Assume 
+the parent keys in these tables already have the proper constraints. 
+2) Redefine the Orders table as follows:- add a new column called prev, which will 
+identify, for each order, the onum of the previous order for that current customer. 
+Implement this with a foreign key referring to the Orders table itself. The foreign 
+key should refer as well to the cnum of the customer, providing a definite 
+enforced link between the current order and the one referenced. 
+
+
+Assignment – 19
+ Views.
+ 1) Create a view that shows all of the customers who have the highest ratings. 
+2) Create a view that shows the number of salespeople in each city. 
+3) Create a view that shows the average and total orders for each salesperson after 
+his or her name. Assume all names are unique. 
+4) Create a view that shows each salesperson with multiple customers. 
+
+
+Assignment – 20 
+Changing Values through Views. 
+1) Which of these views are updateable (will allow DML operations)?  
+
+#1  Create View Dailyorders  
+as Select Distinct cnum, snum, onum, odate from Orders;  
+#2  Create View Custotals  
+as Select cname, Sum (amt) Sum_Amt from Orders, Customers   
+where Orders.cnum=Customers.cnum  
+Group by cname; 
+#3  Create view Thirdorders  
+as Select * from Dailyorders  where 
+odate=’1990-10-03’; 
+#4  Create view Thirdorders  
+as Select * from Dailyorders  where 
+odate=’1990-10-03’; 
+Create View Dailyorders  
+as Select Distinct cnum, snum, onum, odate from Orders;  
+
+
+2) Create a view of the Salespeople table called Commissions. This view will include 
+only the snum and comm fields. Through this view, someone could enter or change 
+commissions, but only to values between .10 and .20.  
+
+
+3) Some SQL implementations have a built-in constant representing the current date, 
+sometimes called “CURDATE” or “SYSDATE”.  The word SYSDATE can 
+therefore be used in a SQL statement, and be replaced by the current date when the 
+value is accessed by commands such as Select or Insert. We will use a view of the 
+Orders table called Entryorders to insert rows into the Orders table. Create the 
+Orders table, so that SYSDATE is automatically inserted for odate if no value is 
+given. Then create the Entryorders view so that no values can be given. 
+
+Assignment - 21
+ Grant and Revoke.
+ 1) Give Amit the right to change the ratings of the customers. 
+2) Give Manoj the right to give other users the right to query the Orders table. 
+3) Take the INSERT privilege on Salespeople away from Ajita. 
+4) Grant Abhijeet the right to insert or update the Customers table while keeping her 
+possible rating values in the range of 100 to 500. 
+5) Allow Vikram to query the Customers table, but restrict his access to those 
+customers whose rating is the lowest.
+
+
+
+
+
+
+
+
+
+
+
+
+ 

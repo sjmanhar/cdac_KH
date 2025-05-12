@@ -1,0 +1,30 @@
+// -----------DAY6------------
+class StringDemo {
+    public static void main(String args[]) {
+    
+    String s = "ABC"; // string literals
+   // s= "PQR"; 
+    String s2 ="ABC";
+    //String s2 ="ABc"; // new memory.... sop( s == s2) will be false
+
+    String s1 = new String("XYZ"); // new keyword
+    String s3 = new String("XYZ"); // new keyword
+
+
+   System.out.println(s);
+   System.out.println(s1);
+   System.out.println(s == s2);  // true
+   System.out.println(s1 ==s);  // false, references are differnt
+   System.out.println(s1 ==s3);  // false
+
+   System.out.println(s1.equals(s3));  // true
+   System.out.println(s.equals(s2));  // true
+   System.out.println(s1.equals(s2));  // false
+
+ String concatString = s.concat("sjm");
+   System.out.println(s);  //ABC
+   System.out.println(concatString);  //ABCsjm
+
+
+}
+}

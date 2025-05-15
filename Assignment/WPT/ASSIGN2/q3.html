@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>que3</title>
+    <style>
+        div{
+            margin: 50px auto;
+            text-align: center;
+        }
+        option{
+            width: 500px;
+            background-color: rgb(209, 209, 225);
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        
+    </style>
+</head>
+<body>
+    <div>
+    <select id="dropdown">
+        <option >red</option>
+        <option >blue</option>
+        <option >yellow</option>
+        <option >green</option>
+        <option >black</option>
+    </select>
+    <input type="button"  onclick="remove()" value="click to remove">
+    </div>
+     <script>
+        function remove(){
+            var element= document.getElementById("dropdown");
+            element.remove(element.selectedIndex)
+        }
+     </script>
+</body>
+</html>

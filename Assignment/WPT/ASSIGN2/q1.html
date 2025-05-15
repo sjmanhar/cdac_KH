@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>que1</title>
+    <style>
+        div{
+            
+            width: 50%;
+            height: 70%;
+            margin: 50px auto;
+            border: 2px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+        button{
+            color: rgb(164, 130, 197);
+            background-color: rgb(25, 7, 43);
+            width: auto;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p id="para">Anyone who has ever tried to achieve a demanding goal knows that consistency is critical. Whether it's working out, eating healthy, or studying for an exam, there is no substitute for consistency when it comes to reaching your goals. The reason is simple: consistency leads to momentum. The more consistently you do something, the easier it becomes, and the more momentum you build up. Eventually, what was once a struggle becomes a habit, and habits are hard to break. That's why consistency is so important- it is the key to making lasting change. So if you're looking to achieve a goal, remember to be consistent (no matter what), and eventually, you'll reach your destination</p>
+    
+        <button onclick="changeStyle()">click me</button>
+    </div>
+    <script>
+        function changeStyle(){
+            let para = document.getElementById("para");
+            para.style.color="maroon";
+            para.style.fontSize="20px";
+            para.style.fontFamily="Georgia";
+        }
+
+    </script>
+</body>
+</html>

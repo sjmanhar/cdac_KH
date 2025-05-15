@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fetchData(url, callback) {
+  console.log(`Fetching data from ${url}...`);
+
+  setTimeout(() => {
+    const success = Math.random() > 0.3; // Simulate 70% success rate
+
+    if (success) {
+      const response = "Response from " + url;
+      callback(null, response); // No error
+    } else {
+      callback("Network error occurred", null); // Error case
+    }
+  }, 2000);
+}
+
+// Example usage:
+fetchData("https://cdacmumbai.in", function(err, response) {
+  if (err) {
+    console.log("Error:", err);
+  } else {
+    console.log("Received:", response);
+  }
+});
+
+    </script>
+</body>
+</html>

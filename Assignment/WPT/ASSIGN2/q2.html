@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>que2</title>
+    <style>
+        form{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background-color: #f0f0f0;
+            width:300px;
+            margin: 100px auto;
+            padding: 20px;
+            border: 2px solid black;
+            border-radius: 20px;
+            text-align:left;
+        }
+        div {
+            margin: 10px;
+        }
+        button{
+            margin-left: 80px;
+        }
+        #output{
+           
+            text-align: left;
+            padding: 5px;
+            width: fit-content;
+            margin: 10px auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- form> 1stname lastname contact 
+        email button onclck. print value in broweser-->
+    <form >
+
+    <div>
+        <span>FIRST NAME:</span>
+        <input type="text" name="first name" id="first">
+    </div><div>
+        <span>LAST NAME:</span>
+        <input type="text" name="last name" id="last">
+    </div><div>
+        <span>CONTACT NO:</span>
+        <input type="number" name="contact no." id="contact">
+    </div><div>
+        <span>EMAIL:</span>
+        <input type="email" name="email" id="email">
+    </div>
+    <button type="button" onclick="getFormValues()">SUBMIT</button>
+
+    </form>
+    <div id="output"></div>
+
+    <script>
+        function getFormValues(){
+            var first= document.getElementById('first').value;
+            var last= document.getElementById('last').value;
+            var contact= document.getElementById('contact').value;
+            var email = document.getElementById('email').value;
+            
+            var result = `
+                <h3>Submitted Data:</h3>
+                <p><b>First Name:</b> ${first}</p>
+                <p><b>Last Name:</b> ${last}</p>
+                <p><b>Contact No:</b> ${contact}</p>
+                <p><b>Email:</b> ${email}</p>
+            `;
+
+            document.getElementById('output').innerHTML = result;
+        }
+       
+    </script>
+</body>
+</html>

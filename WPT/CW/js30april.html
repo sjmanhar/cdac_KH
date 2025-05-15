@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+</head>
+<body>
+    <h1 id="head">heading</h1>
+    <div id="container">
+
+    </div>
+    <p id="para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum deserunt eos, delectus ipsam cumque illo maiores veritatis cum, quisquam distinctio nulla similique sint minima eligendi temporibus assumenda impedit. Nostrum, quos.</p>
+   
+    <button onclick="getContent()">get content</button>
+    
+    <button onclick="changeContent()">change content</button>
+    
+    <button onclick="addElement()"> add new heading</button>
+    
+    <button onclick="removeElement()"> remove p element</button>
+    
+    <input type="text" id="field">
+    <a href="www.flipcart.com" id="shopping"> online shopping</a>
+    <button onclick="getElementAttribute()">get attribute</button>
+    
+    <button onclick="changeElementAttribute()">change attribute</button>
+    
+    <input type="password" id="pwdfield">
+    <button onclick="togglePwd()" id="btn">show</button>
+
+    <input type="text" id="textfield1" >
+    <input type="text" id="textfield2" >
+    <button onclick="add()">add</button>
+    <h2 id="result"></h2>
+
+    <input type="text" id="textfield" onkeyup="validate()">
+    <p id="validate-msg"></p>
+
+    <script>
+       var obj= document.getElementById("head")
+       console.log(obj)
+       console.log(obj.innerHTML)
+
+       function getContent(){
+        var obj= document.getElementById("head")
+        console.log(obj.innerHTML)
+       }
+       function changeContent(){
+        var obj= document.getElementById("head")
+        obj.innerHTML = "updated content";
+        console.log(obj.innerHTML)
+       }
+
+       function addElement(){
+       var newHead = document.createElement("h2");
+       newHead.innerHTML= "hello h2 heading"
+       var contDiv =document.getElementById("container");
+       contDiv.append(newHead);
+       }
+       function removeElement(){
+        var paraobj = document.getElementById("para");
+        paraobj.remove()
+       }
+       function getElementAttribute(){
+        var textfield= document.getElementById("field");
+        var anchor= document.getElementById("shopping")
+        var typevalue =textfield.getAttribute("type")
+        var hrefvalue = anchor.getAttribute("href");
+        console.log(typevalue,hrefvalue)
+       }
+
+       function changeElementAttribute(){
+        var textfield= document.getElementById("field");
+        var anchor= document.getElementById("shopping");
+        var chngtext= textfield.setAttribute("type","password");
+        var chnganchor =anchor.setAttribute("href","www.amazon.com")
+        console.log(chngtext,chnganchor);
+
+       }
+
+       function togglePwd(){
+        var pwdfield = document.getElementById("pwdfield");
+        var btn = document.getElementById("btn");
+        if(btn.innerHTML=="show"){
+            pwdfield.setAttribute("type","text");
+            btn.innerHTML="hide";
+        }
+        else{
+            pwdfield.setAttribute("type","password");
+            btn.innerHTML="show"
+        }
+       }
+
+
+       
+       function add(){
+        var n1= document.getElementById("textfield1").value
+        var n2= document.getElementById("textfield2").value
+        var n3=parseInt(n1)+parseInt(n2);
+        document.getElementById("result").innerHTML= "sum is " +n3;
+        
+       }
+
+       function validate(){
+
+        var textfield= document.getElementById("textfield");
+        var para =document.getElementById("validate-msg");
+        if(textfield.value.trim().length !== 0){
+            para.innerHTML="value valid";
+            para.style.color="green";
+            textfield.style.backgroundColor= "green"
+
+        }
+        else{
+            para.innerHTML="value required";
+            para.style.color="red";
+            textfield.style.backgroundColor= "red"
+        }
+       }
+       
+    </script>
+</body>
+</html>

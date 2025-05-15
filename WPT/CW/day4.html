@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>jsdemo</title>
+</head>
+<body>
+    
+    <p id="demo">ghhgghhghg</p>
+    <form name="myForm" action="#" onsubmit="return validateForm()" method="post">
+        NAME: <input type="text" name="fname">
+        <input type="submit" value="submit">
+    </form>
+   <script>
+
+        document.getElementById("demo").innerHTML= "hello worlddd " + Date();
+        const element = document.getElementById("demo");
+        console.log(element);
+
+        roll =10;
+        if(roll==10){
+            console.log("shubhra");
+        }
+        else if(roll==12){
+            console.log("jyotsna");
+        }
+        else{
+            console.log("none");
+        }
+        //ARRAY
+       a= [5,9,"hello",true,5.6];
+
+       for(i=0;i<a.length; i++){
+        console.log(a[i]);
+       }
+
+       for(i=0;i<a.length; i++){
+        if(a[i]%2==0){
+            console.log(a[i]);
+        }
+       }
+
+       b=[5,4,18,120,9,13,8];
+       //first elemet of arr is max
+       //a[0] 5
+    //5<4 -> 5<18 -> 18<120 -> 120<9 -> 120<13 -> 120<8 -> 120
+        max=b[0];
+        for(i=1;i<b.length; i++){
+            if(max<b[i]){
+                max=b[i];
+            }
+        }
+        console.log(max)
+        
+        //2D ARRAY
+        a=[[1,2,54],[5,8,96]];
+        console.log(a);
+        console.log(a.length);
+        for(i=0; i<a.length; i++){
+            console.log(a[i]);//a[i] is id array
+            for(j=0; j<a[i].length; j++){
+                console.log(a[i][j]);
+            }
+        }
+       
+        student ={
+            id:101,
+            name: "shubhra",
+            marks: 999,
+            phone:0000000000,
+            hobby:["paint", "sketch"] ,
+            address:{
+                house:"k/5",
+                city: "gfg",
+                country:"india"
+            }
+        }
+        console.log(student);
+        console.log(student.id);
+        console.log(student.name);
+        for(i=0; i<student.hobby.length; i++){
+            console.log(student.hobby[i])
+        }
+        console.log(student)
+        console.log(student.address)
+        console.log(student.address.country)
+        
+
+        student =[{
+            id:101,
+            name: "shubhra",
+            marks: 999,
+            phone:1100000100,
+            hobby:["paint", "sketch"] 
+        },
+        {
+            id:102,
+            name: "jyotsna",
+            marks: 99,
+            phone:1111111111,
+            hobby:["paint", "sketch"] 
+        },
+        {
+            id:103,
+            name: "manhar",
+            marks: 9,
+            phone:2222222222,
+            hobby:["paint", "sketch"] 
+        }
+    ]
+    console.log(student);
+    console.log(student[0]);
+    console.log(student[0].id, student[0].name);
+    console.log(student[0].hobby[0]);
+
+    for(i=0;i<student.length;i++){
+        console.log(student[i].id, student[i].name);
+        console.log(student[i].hobby)
+        for(j=0;j<student[i].hobby.length;j++){
+            console.log(student[i].hobby[j])
+            document.write(`name: ${student[i].name}`);
+        }
+    }
+   
+   </script> 
+</body>
+</html>

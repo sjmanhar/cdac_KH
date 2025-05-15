@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #nav{
+            display:flex;
+            justify-content: space-evenly;
+            text-align:inherit;
+            background-color: rgb(223, 234, 234);
+            width:100%;
+            padding: 20px;
+            float:inline-start;
+        }
+        a{
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: rgb(112, 97, 134);
+            text-decoration: none;
+           /* padding: 10px;*/
+            margin: 120px;
+            font-size: 25px;
+        }
+        a:hover{
+            border: 2px solid white;
+            border-radius: 20%;
+            font-size: 28px;
+            background-color:rgb(196, 230, 230);
+            transition: background 0.5s;
+        }
+        #logo{
+            width: 50px;
+
+        }
+        .box-con{
+            
+            background-color: aqua;
+            padding: 50px;
+            width: 100%;
+            height: 300px;
+            margin: 50px auto;
+            
+        }
+        .box-1,.box-2,.box-3{
+            float:left;
+            margin: 20px;
+            background-color: azure;
+            width: 28%;
+            height: inherit;
+        }
+        
+        h2{
+            text-align: center;
+            font-size: 100px;
+            
+        }
+        button{
+
+        }
+    </style>
+    
+</head>
+<body>
+    <nav id="nav">
+        <div>
+            <img id="logo" src="./images.jpeg">
+        </div>
+        <div>
+            <a class="nav-content" href="#">HOME</a>
+            <a class="nav-content" href="#">ABOUT US</a>
+            <a class="nav-content" href="#"> SERVICES</a>
+            <a class="nav-content" href="#">CONTACT</a>
+        </div>
+            
+            
+        
+    </nav>
+    <div>
+        <h2>welcome to the web page</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit dolorem accusamus laudantium aspernatur neque numquam, nobis magni inventore? Fugit quas doloremque quia aut accusamus aliquam suscipit minima ex expedita perferendis? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit illum aut optio sit eum omnis, possimus consequatur, placeat ducimus mollitia quas illo. Repellendus nam enim dolorem tenetur quas esse nostrum!</p>
+        <button id="desc">know more...</button>
+    </div>
+    <div class="box-con">
+        <div class="box-1">
+            <h3>box 1</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita accusamus architecto veniam, libero dolorum ab quibusdam. Aperiam alias tempora dolores quo esse, necessitatibus accusamus obcaecati quia reprehenderit officia autem fuga?</p>
+        </div>
+        <div class="box-2">
+            <h3>box 2</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita accusamus architecto veniam, libero dolorum ab quibusdam. Aperiam alias tempora dolores quo esse, necessitatibus accusamus obcaecati quia reprehenderit officia autem fuga?</p>
+
+        </div>
+        <div class="box-3">
+            <h3>box 3</h3>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Expedita accusamus architecto veniam, libero dolorum ab quibusdam. Aperiam alias tempora dolores quo esse, necessitatibus accusamus obcaecati quia reprehenderit officia autem fuga?</p>
+
+        </div>
+    </div>
+    
+</body>
+</html>

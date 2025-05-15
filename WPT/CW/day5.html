@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>day5</title>
+</head>
+<body>
+    <script>
+        function add(x,y){
+            z=x+y;
+            return z;
+        }
+
+        res = add(2,6);
+        console.log(res);
+
+         function checkeligible(age){
+            if(age>=18){
+                console.log("allowed");
+            }else{
+                console.log("not allowed");
+            }
+        }
+        checkeligible(5);
+
+
+        obj = function show(){
+            console.log("hello");
+        }
+        console.log(obj);
+        obj();
+        //show();//show ref has been destroyed when show assigned into obj
+
+        //property of window function
+        function demo(){
+            a=5;
+            console.log("inside funtion", a);
+        }
+        demo();
+        console.log("outside", a);
+
+        function demo1(){
+           var b= 10;
+            console.log("inside funtion", b);
+        }
+        demo1();
+        //console.log("outside", b);
+        //var can redeclare a variable using var
+
+        // console.log(c);
+        // var c=6;
+
+        function show(){
+            if(true){
+                var d=15;
+                console.log("inside",d);
+            }
+            console.log("outside",d);
+        }
+        show();
+
+        //let
+        function show(){
+            let e=20;
+            console.log("inside", e);//accessible here
+        }
+       // console.log("outside", e);//not accessible here
+
+        const f=5;
+        
+        function show(){
+            console.log("hii");
+        }
+        var obj= show;
+        console.log(obj)
+
+        function show1(){
+            console.log("show function");
+        }
+
+        function demo2(arg){
+            console.log(arg);
+            arg();
+        }//we can pass a function as argument
+
+        demo2(show1);//callback function:function passing in arguments   
+        
+        //if we a passing 
+        // demo(function show3(){
+        //     console.log("inside");
+        // });
+        // demo(show3);
+        // var x=7;
+        // demo(x)
+
+        var sum= (a,b)=>{
+            return a+b;
+        }
+        const rs =sum(2,6);
+        console.log(rs)
+
+        var sum=(c,d)=>c+d;
+        const res =sum(2,9);
+        console.log(res);
+
+        const oincrement =n =>n+5
+    </script>
+</body>
+</html>

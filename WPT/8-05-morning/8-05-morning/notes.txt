@@ -1,0 +1,47 @@
+Expense Tracker: 
+
+user specific 
+income and expense
+
+
+
+user: id PK, name, phone, email, password
+
+income: id PK, amount, date, source, remark, userid FK
+
+expense: id PK, amount, date, source, remark, userid FK
+
+sequelize
+
+create table user(
+    -> id int primary key auto_increment,
+    -> name varchar(200),
+    -> phone varchar(10),
+    -> email varchar(200),
+    -> password varchar(300)
+    -> );
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> create table income(
+    -> id int primary key auto_increment,
+    -> amount float,
+    -> txn_date date,
+    -> source varchar(200),
+    -> userid int,
+    -> foreign key(userid) references user(id)
+    -> );
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> create table expense(
+    -> id int primary key auto_increment,
+    -> amount float,
+    -> txn_date date,
+    -> source varchar(200),
+    -> userid int,
+    -> foreign key(userid) references user(id)
+    -> );
+
+
+
+
+

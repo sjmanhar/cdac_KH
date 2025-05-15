@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>crud </title>
+</head>
+<body>
+    <h2>user management</h2>
+    <input type="text" id="username" placeholder="enter username"></input>
+    <button onclick="createUser()">Add User</button>
+
+    <ul id="userList"></ul>
+</body>
+
+<script>
+    let users= [];
+    function createUser(){
+        const input = document.getElementById("username");
+        const username=input.value;
+        if(username==="")return;
+
+        users.push(username);
+        input.value="";
+        console.log(users)
+        renderUsers()
+    }
+
+    function renderUsers(){
+        const list = document.getElementById("userList");
+        list.innerHTML="";
+
+        users.forEach((user,index)=>{
+            const li= document.createElement("li")
+            li.innerHTML=`
+             ${user}
+             <button onclick="editUser(${index})">EDIT</button>
+             <button onclick="deleteUser(${index})">DELETE</button>
+            `;
+            list.appendChild(li);
+        })
+    }
+
+    function editUser(index){
+        const newName = prompt("enter new username: ", users[index]);
+        if (newName!==null &&newName!==""){
+            users[index]= newName;
+            renderUsers();
+            console.log(users)
+        }
+    }
+
+    function deleteUser(index) {
+  users.splice(index, 1); 
+  renderUsers();
+  //console.log( "deleted")
+}
+</script>
+</html>
